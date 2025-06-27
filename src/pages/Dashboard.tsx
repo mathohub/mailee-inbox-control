@@ -5,20 +5,18 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   Container,
   Tabs,
   Tab,
   Paper
 } from '@mui/material';
-import { Logout, Email, Security, Analytics } from '@mui/icons-material';
+import { Email, Security, Analytics } from '@mui/icons-material';
 import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
-import LanguageToggle from '../components/LanguageToggle';
+import SettingsMenu from '../components/SettingsMenu';
 import InboxTab from '../components/Dashboard/InboxTab';
 import SpamTab from '../components/Dashboard/SpamTab';
 import AnalyticsTab from '../components/Dashboard/AnalyticsTab';
-import { useNavigate } from 'react-router-dom';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -36,17 +34,11 @@ const TabPanel: React.FC<TabPanelProps> = ({ children, value, index }) => {
 
 const Dashboard: React.FC = () => {
   const [tabValue, setTabValue] = useState(0);
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const { t } = useLanguage();
-  const navigate = useNavigate();
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
   };
 
   return (
@@ -60,14 +52,7 @@ const Dashboard: React.FC = () => {
             <Typography variant="body2">
               Welcome, {user?.name}
             </Typography>
-            <LanguageToggle />
-            <Button
-              color="inherit"
-              startIcon={<Logout />}
-              onClick={handleLogout}
-            >
-              {t('dashboard.logout')}
-            </Button>
+            <SettingsMenu />
           </Box>
         </Toolbar>
       </AppBar>

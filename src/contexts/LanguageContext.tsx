@@ -11,6 +11,10 @@ interface LanguageContextType {
 
 const translations = {
   en: {
+    // Common
+    'common.back': 'Back',
+    'common.cancel': 'Cancel',
+    
     // Auth
     'auth.login': 'Login',
     'auth.register': 'Register',
@@ -41,6 +45,22 @@ const translations = {
     'dashboard.analytics': 'Analytics',
     'dashboard.logout': 'Logout',
     
+    // Settings
+    'settings.language': 'Language',
+    'settings.manageSubscription': 'Manage Subscription',
+    
+    // Subscription
+    'subscription.manage': 'Manage Subscription',
+    'subscription.currentPlan': 'Current Plan',
+    'subscription.active': 'Active',
+    'subscription.trial': 'Trial',
+    'subscription.nextBilling': 'Next billing',
+    'subscription.cancel': 'Cancel Subscription',
+    'subscription.confirmCancel': 'Cancel Subscription?',
+    'subscription.cancelWarning': 'Are you sure you want to cancel your subscription? You will lose access to all premium features.',
+    'subscription.confirmCancelAction': 'Yes, Cancel',
+    'subscription.trialInfo': 'You are currently on a 7-day free trial. Your subscription will start after the trial period.',
+    
     // Inbox
     'inbox.title': 'Inbox Cleanup',
     'inbox.selectAll': 'Select All',
@@ -61,6 +81,10 @@ const translations = {
     'analytics.cleanupSaved': 'Time Saved',
   },
   pt: {
+    // Common
+    'common.back': 'Voltar',
+    'common.cancel': 'Cancelar',
+    
     // Auth
     'auth.login': 'Entrar',
     'auth.register': 'Cadastrar',
@@ -90,6 +114,22 @@ const translations = {
     'dashboard.spam': 'Spam',
     'dashboard.analytics': 'Análises',
     'dashboard.logout': 'Sair',
+    
+    // Settings
+    'settings.language': 'Idioma',
+    'settings.manageSubscription': 'Gerenciar Assinatura',
+    
+    // Subscription
+    'subscription.manage': 'Gerenciar Assinatura',
+    'subscription.currentPlan': 'Plano Atual',
+    'subscription.active': 'Ativo',
+    'subscription.trial': 'Teste',
+    'subscription.nextBilling': 'Próxima cobrança',
+    'subscription.cancel': 'Cancelar Assinatura',
+    'subscription.confirmCancel': 'Cancelar Assinatura?',
+    'subscription.cancelWarning': 'Tem certeza que deseja cancelar sua assinatura? Você perderá acesso a todas as funcionalidades premium.',
+    'subscription.confirmCancelAction': 'Sim, Cancelar',
+    'subscription.trialInfo': 'Você está atualmente em um teste grátis de 7 dias. Sua assinatura começará após o período de teste.',
     
     // Inbox
     'inbox.title': 'Limpeza da Caixa de Entrada',

@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Payment from './pages/Payment';
 import Dashboard from './pages/Dashboard';
+import ManageSubscription from './pages/ManageSubscription';
 
 const theme = createTheme({
   palette: {
@@ -66,6 +67,14 @@ const App: React.FC = () => {
                 element={
                   <ProtectedRoute requiresPaid>
                     <Dashboard />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/manage-subscription" 
+                element={
+                  <ProtectedRoute requiresPaid>
+                    <ManageSubscription />
                   </ProtectedRoute>
                 } 
               />
