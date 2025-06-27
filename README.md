@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
 
-## Project info
+# Mailee
 
-**URL**: https://lovable.dev/projects/e15e8b3b-ffbf-4436-8a76-62e118a4f95f
+Mailee é um micro SaaS que organiza sua caixa de entrada, elimina spams e mostra relatórios dos remetentes mais frequentes. Desenvolvido com React.js, Vite e Material UI.
 
-## How can I edit this code?
+## 🚀 Funcionalidades
 
-There are several ways of editing your application.
+- **Limpeza da caixa de entrada**: Lista e-mails da caixa de entrada, permitindo selecionar e excluir vários rapidamente
+- **Exclusão de spams**: Identifica e mostra e-mails classificados como spam, permitindo excluir todos com um clique
+- **Resumo detalhado**: Dashboard mostrando estatísticas dos remetentes mais frequentes, categorias de e-mails mais recebidos e gráficos resumidos
 
-**Use Lovable**
+## 🔐 Autenticação
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e15e8b3b-ffbf-4436-8a76-62e118a4f95f) and start prompting.
+Faça login com e-mail e senha ou use Google. No cadastro é obrigatório informar o nome. Para acessar 7 dias gratuitos, cadastre cartão ou Paypal via Kiwify (simulado).
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tecnologias
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
+- React.js + Vite
+- Material UI
 - TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Chart.js para gráficos
+- Context API para gerenciamento de estado
+- React Router para navegação
 
-## How can I deploy this project?
+## 📱 Como usar
 
-Simply open [Lovable](https://lovable.dev/projects/e15e8b3b-ffbf-4436-8a76-62e118a4f95f) and click on Share -> Publish.
+1. **Login/Cadastro**: Acesse com suas credenciais ou cadastre-se
+2. **Pagamento**: Configure o método de pagamento para teste gratuito
+3. **Dashboard**: Gerencie seus e-mails através das 3 principais funcionalidades
 
-## Can I connect a custom domain to my Lovable project?
+## 🌐 Idiomas
 
-Yes, you can!
+- Português (pt)
+- English (en)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Mailee
+
+Mailee is a micro SaaS to organize your inbox, delete spam, and show reports of your most frequent senders. Built with React.js, Vite, and Material UI.
+
+## 🚀 Features
+
+- **Inbox Cleanup**: List inbox emails, allowing quick selection and deletion of multiple emails
+- **Spam Deletion**: Identifies and shows emails classified as spam, allowing deletion of all with one click
+- **Detailed Summary**: Dashboard showing statistics of most frequent senders, most received email categories, and summary charts
+
+## 🔐 Authentication
+
+Login with email/password or Google. During signup, name is required. For 7-day free access, register a card or Paypal via Kiwify (simulated).
+
+## 🛠️ Technologies
+
+- React.js + Vite
+- Material UI
+- TypeScript
+- Chart.js for charts
+- Context API for state management
+- React Router for navigation
+
+## 📱 How to use
+
+1. **Login/Register**: Access with your credentials or sign up
+2. **Payment**: Set up payment method for free trial
+3. **Dashboard**: Manage your emails through the 3 main features
+
+## 🌐 Languages
+
+- Português (pt)
+- English (en)
