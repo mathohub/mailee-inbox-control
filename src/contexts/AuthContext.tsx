@@ -17,6 +17,7 @@ interface AuthContextType {
   logout: () => void;
   completePurchase: () => void;
   cancelSubscription: () => void;
+  reactivateSubscription: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -113,8 +114,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  const reactivateSubscription = () => {
+    if (user) {
+      const updatedUser = { ...user, subscriptionStatus: 'active' as const };
+      setUser(updatedUser);
+      localStorage.setItem('mailee_user', JSON.stringify(updatedUser));
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, loginWithGoogle, register, logout, completePurchase, cancelSubscription }}>
+    <AuthContext.Provider value={{ user, login, loginWithGoogle, register, logout, completePurchase, cancelSubscription, reactivateSubscription }}>
       {children}
     </AuthContext.Provider>
   );

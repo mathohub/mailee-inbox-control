@@ -15,14 +15,14 @@ import {
   DialogActions,
   Alert
 } from '@mui/material';
-import { ArrowBack, Cancel, CheckCircle } from '@mui/icons-material';
+import { ArrowBack, Cancel, CheckCircle, Refresh } from '@mui/icons-material';
 import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
 const ManageSubscription: React.FC = () => {
   const [cancelDialogOpen, setCancelDialogOpen] = React.useState(false);
-  const { user, cancelSubscription } = useAuth();
+  const { user, cancelSubscription, reactivateSubscription } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
 
@@ -34,6 +34,11 @@ const ManageSubscription: React.FC = () => {
     cancelSubscription();
     console.log('Subscription cancelled');
     setCancelDialogOpen(false);
+  };
+
+  const handleReactivateSubscription = () => {
+    reactivateSubscription();
+    console.log('Subscription reactivated');
   };
 
   const isSubscriptionCancelled = user?.subscriptionStatus === 'cancelled';
@@ -119,9 +124,22 @@ const ManageSubscription: React.FC = () => {
         )}
 
         {isSubscriptionCancelled && (
-          <Alert severity="warning" sx={{ mb: 3 }}>
-            Sua assinatura está cancelada. Para reativar, entre em contato com o suporte.
-          </Alert>
+          <>
+            <Alert severity="warning" sx={{ mb: 3 }}>
+              Sua assinatura está cancelada. Para reativar, clique no botão abaixo.
+            </Alert>
+            
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <Button
+                variant="contained"
+                color="success"
+                startIcon={<Refresh />}
+                onClick={handleReactivateSubscription}
+              >
+                {t('subscription.reactivate')}
+              </Button>
+            </Box>
+          </>
         )}
       </Paper>
 
