@@ -6,6 +6,7 @@ interface User {
   name: string;
   email: string;
   isPaid: boolean;
+  subscriptionStatus?: 'active' | 'cancelled';
 }
 
 interface AuthContextType {
@@ -15,6 +16,7 @@ interface AuthContextType {
   register: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
   completePurchase: () => void;
+  cancelSubscription: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -47,7 +49,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       id: '1',
       name: 'Demo User',
       email,
-      isPaid: false
+      isPaid: false,
+      subscriptionStatus: 'active' as const
     };
     
     setUser(userData);
@@ -63,7 +66,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       id: '2',
       name: 'Google User',
       email: 'user@gmail.com',
-      isPaid: false
+      isPaid: false,
+      subscriptionStatus: 'active' as const
     };
     
     setUser(userData);
@@ -79,7 +83,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       id: Date.now().toString(),
       name,
       email,
-      isPaid: false
+      isPaid: false,
+      subscriptionStatus: 'active' as const
     };
     
     setUser(userData);
@@ -94,14 +99,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const completePurchase = () => {
     if (user) {
-      const updatedUser = { ...user, isPaid: true };
+      const updatedUser = { ...user, isPaid: true, subscriptionStatus: 'active' as const };
+      setUser(updatedUser);
+      localStorage.setItem('mailee_user', JSON.stringify(updatedUser));
+    }
+  };
+
+  const cancelSubscription = () => {
+    if (user) {
+      const updatedUser = { ...user, subscriptionStatus: 'cancelled' as const };
       setUser(updatedUser);
       localStorage.setItem('mailee_user', JSON.stringify(updatedUser));
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, loginWithGoogle, register, logout, completePurchase }}>
+    <AuthContext.Provider value={{ user, login, loginWithGoogle, register, logout, completePurchase, cancelSubscription }}>
       {children}
     </AuthContext.Provider>
   );
