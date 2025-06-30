@@ -11,32 +11,38 @@ import {
   ListItemIcon,
   ListItemText,
   Chip,
-  Grid,
-  Alert
+  CircularProgress,
+  Grid
 } from '@mui/material';
 import { 
   CheckCircle, 
-  CalendarMonth, 
-  CalendarToday, 
+  CreditCard, 
   Email, 
   Security, 
   Analytics,
   Support
 } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import LanguageToggle from '../components/LanguageToggle';
 
 const Payment: React.FC = () => {
-  const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const { completePurchase, user } = useAuth();
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
-  const handleSubscription = (type: 'monthly' | 'annual') => {
-    const monthlyLink = 'https://pay.kiwify.com.br/4oPti4i';
-    const annualLink = 'https://pay.kiwify.com.br/zVYY651';
+  const handlePayment = async (method: 'card' | 'paypal') => {
+    setLoading(true);
     
-    const link = type === 'monthly' ? monthlyLink : annualLink;
-    window.open(link, '_blank');
+    // Simulate payment processing
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Simulate successful payment
+    completePurchase();
+    navigate('/dashboard');
+    setLoading(false);
   };
 
   const features = [
@@ -112,31 +118,37 @@ const Payment: React.FC = () => {
                 <Typography variant="h6" gutterBottom>
                   Welcome, {user?.name}!
                 </Typography>
-
-                <Alert severity="warning" sx={{ mb: 3, textAlign: 'left' }}>
-                  {t('payment.freeTrialWarning')}
-                </Alert>
+                <Typography variant="body2" color="text.secondary" gutterBottom sx={{ mb: 3 }}>
+                  {t('payment.cardRequired')}
+                </Typography>
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Button
                     variant="contained"
                     size="large"
-                    startIcon={<CalendarToday />}
-                    onClick={() => handleSubscription('monthly')}
+                    startIcon={<CreditCard />}
+                    onClick={() => handlePayment('card')}
+                    disabled={loading}
                     sx={{ py: 1.5 }}
                   >
-                    {t('payment.monthlySubscription')}
+                    {loading ? <CircularProgress size={24} /> : t('payment.payWithCard')}
                   </Button>
 
                   <Button
                     variant="outlined"
                     size="large"
-                    startIcon={<CalendarMonth />}
-                    onClick={() => handleSubscription('annual')}
+                    onClick={() => handlePayment('paypal')}
+                    disabled={loading}
                     sx={{ py: 1.5 }}
                   >
-                    {t('payment.annualSubscription')}
+                    {t('payment.payWithPaypal')}
                   </Button>
+                </Box>
+
+                <Box sx={{ mt: 3, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
+                  <Typography variant="caption" color="text.secondary">
+                    * This is a demo. Clicking either button will simulate a successful payment and grant access to the dashboard.
+                  </Typography>
                 </Box>
               </Paper>
             </Grid>
