@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  ListItemSecondary,
   Chip,
   Alert,
   FormControlLabel

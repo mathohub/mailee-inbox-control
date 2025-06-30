@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import { 
   CheckCircle, 
-  Calendar, 
+  CalendarMonth, 
   CalendarToday, 
   Email, 
   Security, 
@@ -131,7 +131,7 @@ const Payment: React.FC = () => {
                   <Button
                     variant="outlined"
                     size="large"
-                    startIcon={<Calendar />}
+                    startIcon={<CalendarMonth />}
                     onClick={() => handleSubscription('annual')}
                     sx={{ py: 1.5 }}
                   >
