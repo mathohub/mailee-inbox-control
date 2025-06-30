@@ -15,7 +15,7 @@ Faça login com e-mail e senha ou use Google. No cadastro é obrigatório inform
 
 ## 🛠️ Tecnologias
 
-- React.js + Vite
+- React.ts + Vite
 - Material UI
 - TypeScript
 - Chart.js para gráficos
