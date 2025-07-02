@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'pt';
@@ -36,9 +37,6 @@ const translations = {
     'payment.cardRequired': 'Credit card required for free trial',
     'payment.payWithCard': 'Pay with Card',
     'payment.payWithPaypal': 'Pay with PayPal',
-    'payment.monthlySubscription': 'Monthly Subscription',
-    'payment.annualSubscription': 'Annual Subscription',
-    'payment.freeTrialWarning': '⚠️ To get the 7 days free, you must cancel before the trial period ends, otherwise there will be no refund.',
     
     // Dashboard
     'dashboard.title': 'Mailee Dashboard',
@@ -111,9 +109,6 @@ const translations = {
     'payment.cardRequired': 'Cartão de crédito necessário para teste grátis',
     'payment.payWithCard': 'Pagar com Cartão',
     'payment.payWithPaypal': 'Pagar com PayPal',
-    'payment.monthlySubscription': 'Assinatura Mensal',
-    'payment.annualSubscription': 'Assinatura Anual',
-    'payment.freeTrialWarning': '⚠️ Para pegar os 7 dias grátis, você deve cancelar antes dos 7 dias, senão não terá reembolso.',
     
     // Dashboard
     'dashboard.title': 'Dashboard Mailee',
